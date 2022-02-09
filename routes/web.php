@@ -16,3 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Static routes
+Route::get('/articles', function () {
+    return 'Articles List';
+});
+
+Route::get('/articles/detail', function() {
+    return 'Aritcle Detail';
+}) -> name('article.detail');
+
+// Dynamic routes
+Route::get('/articles/detail/{id}', function($id) {
+    return "Article Detail - $id";
+});
+
+// Named routes
+Route::get('/articles/more', function() {
+    return redirect() -> route('article.detail');
+});
