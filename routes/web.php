@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Linking article controller with web.php
+use App\Http\Controllers\ArticleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,25 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ArticleController::class, 'index']);
 
-// Static routes
-Route::get('/articles', function () {
-    return 'Articles List';
-});
+Route::get('/articles', [ArticleController::class, 'index']);
 
-Route::get('/articles/detail', function() {
-    return 'Aritcle Detail';
-}) -> name('article.detail');
-
-// Dynamic routes
-Route::get('/articles/detail/{id}', function($id) {
-    return "Article Detail - $id";
-});
-
-// Named routes
-Route::get('/articles/more', function() {
-    return redirect() -> route('article.detail');
-});
+Route::get('/articles/detail/{id}', [ArticleController::class, 'detail']);
