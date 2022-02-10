@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 // Linking article controller with web.php
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Article\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
