@@ -48,6 +48,6 @@ class ArticleController extends Controller
     public function delete($id) {
         $article = Article::find($id);
         $article->delete();
-        return redirect('/articles')->with('info', "Article $id Deleted!");
+        return redirect('/articles')->with('info', "Article \"{$article->title}\" Deleted!");
     }
 }

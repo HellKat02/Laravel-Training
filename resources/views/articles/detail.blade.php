@@ -15,12 +15,10 @@
         </div>
     </div>
     <ul class="list-group">
-        @if(is_countable($article->comments)){
         <li class="list-group-item active">
-            <b>Comments ({{ count($article->comments) }})</b>
+            <b>Comments ({{ $article->comments->count() }})</b>
         </li>
-        } @endif
-        @foreach((array) $article->comments as $comment)
+        @foreach($article->comments as $comment)
         <li class="list-group-item">
             {{ $comment->content }}
         </li>
