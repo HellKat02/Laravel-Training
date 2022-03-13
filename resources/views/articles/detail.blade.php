@@ -24,5 +24,14 @@
         </li>
         @endforeach
     </ul>
+    @auth
+    <form action="{{ url('/comments/add') }}" method="post">
+    @csrf 
+        <input type="hidden" name="article_id" value="{{ $article->id }}">
+        <textarea name="content" class="form-control mb-2" placeholder="New Comment"></textarea>
+        <input type="submit" value="Add Comment"class="btn btn-secondary">
+        <!-- <input type="submit" value="Delete Comment"class="btn btn-danger"> -->
+    </form>
+    @endauth
 </div>
 @endsection

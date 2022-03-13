@@ -18,6 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body {
+            background-color: skyblue;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -34,9 +39,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
+                            @auth
                             <a class="nav-link text-success" href="{{ url('articles/add') }}">
                                 + Add article
                             </a>
+                            @endauth
                         </li>
                     </ul>
 

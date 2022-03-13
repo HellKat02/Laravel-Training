@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Comment\CommentController;
 
 // Linking article controller with web.php
 use App\Http\Controllers\Article\ArticleController;
@@ -31,3 +32,7 @@ Route::get('/articles/detail/{id}', [ArticleController::class, 'detail']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/comments/add', [CommentController::class, 'create']);
+
+Route::get('/comments/delete/{id}', [CommentController::class, 'delete']);

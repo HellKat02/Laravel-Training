@@ -50,4 +50,7 @@ class ArticleController extends Controller
         $article->delete();
         return redirect('/articles')->with('info', "Article \"{$article->title}\" Deleted!");
     }
+    public function __construct() {
+        $this->middleware('auth')->except(['index', 'detail']);
+    }
 }
